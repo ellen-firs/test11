@@ -32,12 +32,12 @@ if uploaded_file:
     
     filtered = []
     
-    with open(f"{file_name}") as f:
-        history = json.load(f)
-        for item in history:
-            item_time = datetime.fromisoformat(item["timestamp"].rstrip("Z") + "+00:00")
-            if start_time <= item_time < end_time:
-                filtered.append(item)
+
+    history = json.load(file_name)
+    for item in history:
+        item_time = datetime.fromisoformat(item["timestamp"].rstrip("Z") + "+00:00")
+        if start_time <= item_time < end_time:
+            filtered.append(item)
     
     client = Client().init()
     rich_results = client.tracks(list(set(list(map(lambda x: x['id'], filtered)))))
