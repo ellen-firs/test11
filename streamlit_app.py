@@ -71,7 +71,7 @@ if uploaded_file:
                      print(item, ids_map[item['id']].artists[0].name)
         
         st.write("Проверьте начало и конец списка")
-        df = pd.DataFrame(scrobblers)
+        df = pd.DataFrame(scrobbles)
         print(df)
         st.dataframe(df) 
         st.write("Загрузить в Last.fm? Введите 'yes' или 'no'.")
