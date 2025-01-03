@@ -59,7 +59,7 @@ if uploaded_file:
                               else None,
                               }
                 df = pd.DataFrame([track_info])
-                st.dataframe(df) 
+                st.table(df) 
                 #st.write(list(track_info.values()))
                 scrobbles.append(track_info)
             except:
