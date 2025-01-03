@@ -27,8 +27,7 @@ uploaded_file = st.file_uploader("Загрузите файл history.json", typ
 if uploaded_file:
     try:
         history = json.load(uploaded_file)  # Загружаем JSON-объект из загруженного файла
-
-
+        filtered = []
         start_time = datetime.fromisoformat(START_TIME)
         end_time = datetime.fromisoformat(END_TIME)
         for item in history:
