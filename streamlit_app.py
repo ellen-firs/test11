@@ -18,6 +18,9 @@ START_TIME = "2024-12-26T01:47:22+00:00"
 # Например, время вашего перехода на новый скробблер
 END_TIME = "2024-12-28T17:03:00+00:00"
 
+filtered = []
+
+
 import streamlit as st
 import json
 from datetime import datetime
@@ -27,7 +30,6 @@ uploaded_file = st.file_uploader("Загрузите файл history.json", typ
 if uploaded_file:
     try:
         history = json.load(uploaded_file)  # Загружаем JSON-объект из загруженного файла
-        filtered = []
         start_time = datetime.fromisoformat(START_TIME)
         end_time = datetime.fromisoformat(END_TIME)
         for item in history:
