@@ -73,7 +73,7 @@ if uploaded_file:
 
         ans = st.text_input("Ваш ответ:")
         
-        if ans.lower() == "yes"::
+        if ans.lower() == "yes":
             import pylast
         
             SESSION_KEY_FILE = ".session_key"
