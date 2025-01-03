@@ -72,6 +72,7 @@ if uploaded_file:
         
         st.write("Проверьте начало и конец списка")
         df = pd.DataFrame(scrobblers)
+        print(df)
         st.dataframe(df) 
         st.write("Загрузить в Last.fm? Введите 'yes' или 'no'.")
 
