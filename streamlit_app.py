@@ -59,9 +59,10 @@ if uploaded_file:
                               if ids_map[item['id']].duration_ms is not None
                               else None,
                               }
-                df = pd.DataFrame([track_info])
-                st.table(df) 
+               
                 #st.write(list(track_info.values()))
+                df = pd.DataFrame([track_info])
+                st.dataframe(df) 
                 scrobbles.append(track_info)
             except:
                 problems.append(item)
