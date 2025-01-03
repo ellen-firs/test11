@@ -1,1 +1,1 @@
-pip install yandex-music pylast
+yandex-music pylast
