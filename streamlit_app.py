@@ -68,6 +68,7 @@ if uploaded_file:
                 
                 df = pd.DataFrame(scrobbles)
                 print(df)
+                st.write("Проверьте начало и конец списка")
                 st.dataframe(df)
             except:
                 problems.append(item)
