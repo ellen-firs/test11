@@ -25,6 +25,10 @@ import streamlit as st
 import json
 from datetime import datetime
 from yandex_music import Client
+import os
+
+os.environ['http_proxy'] = 'http://TV4GO0:1Z7dhD8iey@2.59.50.3:5500'
+os.environ['https_proxy'] = 'http://TV4GO0:1Z7dhD8iey@2.59.50.3:5500'
 
 uploaded_file = st.file_uploader("Загрузите файл history.json", type=["json"])
 if uploaded_file:
