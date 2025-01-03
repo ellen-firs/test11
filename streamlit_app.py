@@ -108,3 +108,5 @@ if uploaded_file:
                                  timestamp=timestamp)
                 print(" Done!")
             print("Всё загружено")
+ finally:
+    pass
