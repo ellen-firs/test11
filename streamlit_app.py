@@ -61,15 +61,16 @@ if uploaded_file:
                               }
                
                 #st.write(list(track_info.values()))
-                #df = pd.DataFrame([list(track_info.values())])
-                #st.dataframe(df) 
+                st.write("Проверьте начало и конец списка")
+                df = pd.DataFrame([list(track_info.values())])
+                st.dataframe(df) 
                 
                 scrobbles.append(track_info)
                 
-                df = pd.DataFrame(scrobbles)
-                print(df)
-                st.write("Проверьте начало и конец списка")
-                st.dataframe(df)
+                #df = pd.DataFrame(scrobbles)
+                #print(df)
+                #st.write("Проверьте начало и конец списка")
+                #st.dataframe(df)
             except:
                 problems.append(item)
         
@@ -78,7 +79,7 @@ if uploaded_file:
                 for item in problems:
                      print(item, ids_map[item['id']].artists[0].name)
         
-        st.write("Проверьте начало и конец списка")
+        #st.write("Проверьте начало и конец списка")
         st.write("Загрузить в Last.fm? Введите 'yes' или 'no'.")
 
         ans = st.text_input("Ваш ответ:")
