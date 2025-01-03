@@ -58,7 +58,7 @@ if uploaded_file:
                               if ids_map[item['id']].duration_ms is not None
                               else None,
                               }
-                print(list(track_info.values()))
+                st.write(list(track_info.values()))
                 scrobbles.append(track_info)
             except:
                 problems.append(item)
