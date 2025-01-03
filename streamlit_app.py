@@ -66,7 +66,7 @@ if uploaded_file:
         if len(problems):
             with open("problems_tracks.txt", "w") as f:
                 for item in problems:
-                    st.write(f"{item}, {ids_map[item['id']].artists[0].name}")
+                     print(item, ids_map[item['id']].artists[0].name)
         
         st.write("Проверьте начало и конец списка")
         st.write("Загрузить в Last.fm? Введите 'yes' или 'no'.")
