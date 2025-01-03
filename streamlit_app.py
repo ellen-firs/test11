@@ -32,7 +32,7 @@ end_time = datetime.fromisoformat(END_TIME)
 
 filtered = []
 
-with open(file_name) as f:
+with open(f"{file_name}") as f:
     history = json.load(f)
     for item in history:
         item_time = datetime.fromisoformat(item["timestamp"].rstrip("Z") + "+00:00")
