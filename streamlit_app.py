@@ -18,7 +18,7 @@ START_TIME = "2024-12-26T01:47:22+00:00"
 # Например, время вашего перехода на новый скробблер
 END_TIME = "2024-12-28T17:03:00+00:00"
 
-import streamlit
+import streamlit as st
 import json
 from datetime import datetime
 from yandex_music import Client
