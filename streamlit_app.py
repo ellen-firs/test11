@@ -24,13 +24,15 @@ from datetime import datetime
 from yandex_music import Client
 
 uploaded_file = st.file_uploader("Загрузите файл history.json", type=["json"])
+if uploaded_file:
+    file_name = uploaded_file.name
 
 start_time = datetime.fromisoformat(START_TIME)
 end_time = datetime.fromisoformat(END_TIME)
 
 filtered = []
 
-with open("history.json") as f:
+with open(file_name) as f:
     history = json.load(f)
     for item in history:
         item_time = datetime.fromisoformat(item["timestamp"].rstrip("Z") + "+00:00")
