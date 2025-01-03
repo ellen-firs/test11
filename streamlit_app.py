@@ -109,7 +109,7 @@ if uploaded_file:
         
             st.write("Начало загрузки")
             for track in scrobbles:
-                st.write("Загружаем ", track, end="")
+                print("Загружаем ", track, end="")
                 timestamp = int(datetime.fromisoformat(track["timestamp"].rstrip("Z") + "+00:00").timestamp())
                 lastfm_user = network.get_user(network.username)
                 network.scrobble(artist=track["artist"],
@@ -117,7 +117,7 @@ if uploaded_file:
                                  album=track['album'],
                                  duration=track['duration'],
                                  timestamp=timestamp)
-                st.write(" Done!")
+                print(" Done!")
             st.write("Всё загружено")
     finally:
         print("ok")
