@@ -68,11 +68,12 @@ if uploaded_file:
                 for item in problems:
                     print(item, ids_map[item['id']].artists[0].name)
         
-        print("Проверьте начало и конец списка")
-        ans = input("Загрузить в Last.fm? [yes/No]\n")
+        st.write("Проверьте начало и конец списка")
+        st.write("Загрузить в Last.fm? Введите 'yes' или 'no'.")
+
+        ans = st.text_input("Ваш ответ:")
         
-        if ans[0] == "y":
-            import os
+        if ans.lower() == "yes"::
             import pylast
         
             SESSION_KEY_FILE = ".session_key"
@@ -82,7 +83,7 @@ if uploaded_file:
                 skg = pylast.SessionKeyGenerator(network)
                 url = skg.get_web_auth_url()
         
-                print(f"Пожалуйста, авторизуйтесь в last.fm: {url}\n")
+                st.write(f"Пожалуйста, авторизуйтесь в last.fm: {url}\n")
                 import time
                 import webbrowser
         
@@ -101,9 +102,9 @@ if uploaded_file:
         
             network.session_key = session_key
         
-            print("Начало загрузки")
+            st.write("Начало загрузки")
             for track in scrobbles:
-                print("Загружаем ", track, end="")
+                st.write("Загружаем ", track, end="")
                 timestamp = int(datetime.fromisoformat(track["timestamp"].rstrip("Z") + "+00:00").timestamp())
                 lastfm_user = network.get_user(network.username)
                 network.scrobble(artist=track["artist"],
@@ -111,7 +112,7 @@ if uploaded_file:
                                  album=track['album'],
                                  duration=track['duration'],
                                  timestamp=timestamp)
-                print(" Done!")
-            print("Всё загружено")
+                st.write(" Done!")
+            st.write("Всё загружено")
     finally:
-        print("test")
+        print("ok")
