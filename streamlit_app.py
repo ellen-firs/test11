@@ -63,8 +63,11 @@ if uploaded_file:
                 #st.write(list(track_info.values()))
                 #df = pd.DataFrame([list(track_info.values())])
                 #st.dataframe(df) 
+                
                 scrobbles.append(track_info)
+                
                 df = pd.DataFrame(scrobbles)
+                print(df)
                 st.dataframe(df)
             except:
                 problems.append(item)
