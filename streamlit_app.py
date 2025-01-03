@@ -61,10 +61,6 @@ if uploaded_file:
                               }
                
                 #st.write(list(track_info.values()))
-                st.write("Проверьте начало и конец списка")
-                df = pd.DataFrame([list(track_info.values())])
-                st.dataframe(df) 
-                
                 scrobbles.append(track_info)
             except:
                 problems.append(item)
