@@ -129,11 +129,11 @@ if uploaded_file:
             
             for track in scrobbles:
                 #st.write("Загружаем ", *track.values(), end="")
-                content += f"<p>Загружаем: {track_info}</p>"
+                content += f"<p>Загружаем: {track_info}    ✅</p>"
                 scrollable_container.markdown(
                     scrollable_html.format(content=content), unsafe_allow_html=True
                 )
-                #time.sleep(0.1)
+                time.sleep(0.1)
 
                 timestamp = int(datetime.fromisoformat(track["timestamp"].rstrip("Z") + "+00:00").timestamp())
                 lastfm_user = network.get_user(network.username)
@@ -142,11 +142,7 @@ if uploaded_file:
                                  album=track['album'],
                                  duration=track['duration'],
                                  timestamp=timestamp)
-                content += "<p> ✅</p>"
-                scrollable_container.markdown(
-                    scrollable_html.format(content=content), unsafe_allow_html=True
-                )
-                time.sleep(0.1)
+                
             
             st.write("Всё загружено")
     finally:
