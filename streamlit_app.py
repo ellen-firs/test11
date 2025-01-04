@@ -10,8 +10,22 @@
 # В last.fm может показываться местное время. Далее нужно UTC
 # т.е. если в Last.fm московское время, то вычтите 3 часа
 
+
+
 import streamlit as st
 from datetime import datetime, date, time, timezone
+
+st.markdown(
+    """
+    <style>
+    .text-input-container {
+        max-width: 300px; /* Устанавливаем ширину */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 default_date = date(2024, 12, 26)
 default_time = time(0, 0)
 start_date_choose = st.date_input("Выберите начальную дату", value = default_date)
@@ -107,10 +121,12 @@ if uploaded_file:
                 session_key = open(SESSION_KEY_FILE).read()
         
             #network.session_key = session_key
-        
+            
             st.write("Начало загрузки")
+            st.markdown('<div class="text-input-container">', unsafe_allow_html=True)
+    
             for track in scrobbles:
-                print("Загружаем ", track, end="")
+                st.write("Загружаем ", track, end="")
                 timestamp = int(datetime.fromisoformat(track["timestamp"].rstrip("Z") + "+00:00").timestamp())
                 lastfm_user = network.get_user(network.username)
                 network.scrobble(artist=track["artist"],
