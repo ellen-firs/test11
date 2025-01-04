@@ -102,8 +102,6 @@ if uploaded_file:
                 while True:
                     try:
                         session_key = skg.get_web_auth_session_key(url)
-                        with open(SESSION_KEY_FILE, "w") as f:
-                            f.write(session_key)
                         break
                     except pylast.WSError:
                         time.sleep(1)
