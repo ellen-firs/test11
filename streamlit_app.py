@@ -112,9 +112,29 @@ if uploaded_file:
             #network.session_key = session_key
             
             st.write("Начало загрузки")
-    
-            for track in scrobbles:
-                st.write("Загружаем ", *track.values(), end="")
+            
+            scrollable_container = st.empty()
+            scrollable_html = """
+                            <div style=" 
+                                height: 300px; 
+                                overflow-y: auto; 
+                                border: 1px solid #ddd; 
+                                padding: 10px;  
+                            " id="scrollable">
+                                {content}
+                            </div>
+                            """
+            content = ""
+
+            
+            for i, track in enumerate(scrobbles):
+                #st.write("Загружаем ", *track.values(), end="")
+                content += f"<p>Загружаем: {track['name']} - {track['artist']}</p>"
+                scrollable_container.markdown(
+                    scrollable_html.format(content=content), unsafe_allow_html=True
+                )
+                time.sleep(0.1)
+
                 timestamp = int(datetime.fromisoformat(track["timestamp"].rstrip("Z") + "+00:00").timestamp())
                 lastfm_user = network.get_user(network.username)
                 network.scrobble(artist=track["artist"],
