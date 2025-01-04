@@ -10,13 +10,14 @@
 # В last.fm может показываться местное время. Далее нужно UTC
 # т.е. если в Last.fm московское время, то вычтите 3 часа
 
-# Укажите время, когда яндекс.музыка в последний раз отправила скроббл
-# Скорее всего менять не нужно
-START_TIME = "2024-12-26T01:47:22+00:00"
+start_date = st.date_input("Выберите начальную дату", value=datetime(2024, 12, 26))
+start_time = st.time_input("Выберите начальное время", value=time(1, 47))
+START_TIME = datetime.combine(start_date, start_time)
 
-# Укажите до какого времени нужно восстановить историю
-# Например, время вашего перехода на новый скробблер
-END_TIME = "2024-12-28T17:03:00+00:00"
+end_date = st.date_input("Выберите конечную дату", value=datetime(2024, 12, 28))
+end_time = st.time_input("Выберите конечное время", value=time(17, 3))
+END_TIME = datetime.combine(end_date, end_time)
+
 
 filtered = []
 
