@@ -11,10 +11,8 @@
 # т.е. если в Last.fm московское время, то вычтите 3 часа
 
 import streamlit as st
-from datetime import datetime, date, time, timezone
+from datetime import datetime, time, timezone
 
-#default_date = date(2024, 12, 26)
-#default_time = time(00, 00)
 start_date_choose = st.date_input("Выберите начальную дату")
 start_time_choose = st.time_input("Выберите начальное время")
 START_TIME = datetime.combine(start_date_choose, start_time_choose)
