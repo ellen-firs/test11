@@ -10,6 +10,8 @@
 # В last.fm может показываться местное время. Далее нужно UTC
 # т.е. если в Last.fm московское время, то вычтите 3 часа
 
+import streamlit as st
+
 start_date = st.date_input("Выберите начальную дату", value=datetime(2024, 12, 26))
 start_time = st.time_input("Выберите начальное время", value=time(1, 47))
 START_TIME = datetime.combine(start_date, start_time)
