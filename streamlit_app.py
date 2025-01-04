@@ -13,7 +13,7 @@
 import streamlit as st
 from datetime import datetime, date, time, timezone
 default_date = date(2024, 12, 26)
-default_date = time(0, 0)
+default_time = time(0, 0)
 start_date_choose = st.date_input("Выберите начальную дату", value = default_date)
 start_time_choose = st.time_input("Выберите начальное время", value = default_time)
 START_TIME = datetime.combine(start_date_choose, start_time_choose)
