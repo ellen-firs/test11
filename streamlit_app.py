@@ -130,9 +130,9 @@ if uploaded_file:
             for track in scrobbles:
                 #st.write("Загружаем ", *track.values(), end="")
                 content += f"<p>Загружаем: {track_info}</p>"
-                #scrollable_container.markdown(
-                    #scrollable_html.format(content=content), unsafe_allow_html=True
-                #)
+                scrollable_container.markdown(
+                    scrollable_html.format(content=content), unsafe_allow_html=True
+                )
                 #time.sleep(0.1)
 
                 timestamp = int(datetime.fromisoformat(track["timestamp"].rstrip("Z") + "+00:00").timestamp())
@@ -147,8 +147,7 @@ if uploaded_file:
                     scrollable_html.format(content=content), unsafe_allow_html=True
                 )
                 time.sleep(0.1)
-                content == ""
-
+                content = ""
             
             st.write("Всё загружено")
     finally:
