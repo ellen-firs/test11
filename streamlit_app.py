@@ -14,11 +14,11 @@ import streamlit as st
 from datetime import datetime, time
 start_date_choose = st.date_input("Выберите начальную дату")
 start_time_choose = st.time_input("Выберите начальное время")
-START_TIME = datetime.combine(start_date_choose, start_time_choose)
+START_TIME = datetime.combine(start_date_choose, start_time_choose, tzinfo=timezone.utc)
 
 end_date_choose = st.date_input("Выберите конечную дату")
 end_time_choose = st.time_input("Выберите конечное время")
-END_TIME = datetime.combine(end_date_choose, end_time_choose)
+END_TIME = datetime.combine(end_date_choose, end_time_choose, tzinfo=timezone.utc)
 
 
 filtered = []
@@ -37,10 +37,10 @@ uploaded_file = st.file_uploader("Загрузите файл history.json", typ
 if uploaded_file:
     try:
         history = json.load(uploaded_file)  # Загружаем JSON-объект из загруженного файла
-        start_time = datetime.fromisoformat(str(START_TIME))
+        start_time = START_TIME
         print(start_time)
         print("\n")
-        end_time = datetime.fromisoformat(str(END_TIME))
+        end_time = END_TIME
         for item in history:
             item_time = datetime.fromisoformat(item["timestamp"].rstrip("Z") + "+00:00")
             if start_time <= item_time < end_time:
