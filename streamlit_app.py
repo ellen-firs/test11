@@ -16,7 +16,7 @@ from datetime import datetime, time, timezone
 start_date_choose = st.date_input("Выберите начальную дату")
 start_time_choose = st.time_input("Выберите начальное время")
 START_TIME = datetime.combine(start_date_choose, start_time_choose)
-
+print(START_TIME)
 end_date_choose = st.date_input("Выберите конечную дату")
 end_time_choose = st.time_input("Выберите конечное время")
 END_TIME = datetime.combine(end_date_choose, end_time_choose)
@@ -36,10 +36,10 @@ uploaded_file = st.file_uploader("Загрузите файл history.json", typ
 if uploaded_file:
     try:
         history = json.load(uploaded_file)  # Загружаем JSON-объект из загруженного файла
-        start_time = datetime.fromisoformat(str(START_TIME).rstrip("Z") + "+00:00")
+        start_time = datetime.fromisoformat(START_TIME).rstrip("Z") + "+00:00")
         print(start_time)
         print("\n")
-        end_time = datetime.fromisoformat(str(END_TIME).rstrip("Z") + "+00:00")
+        end_time = datetime.fromisoformat(END_TIME).rstrip("Z") + "+00:00")
         for item in history:
             item_time = datetime.fromisoformat(item["timestamp"].rstrip("Z") + "+00:00")
             if start_time <= item_time < end_time:
