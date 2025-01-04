@@ -12,12 +12,12 @@
 
 import streamlit as st
 
-start_date = st.date_input("Выберите начальную дату", value=datetime(2024, 12, 26))
-start_time = st.time_input("Выберите начальное время", value=time(1, 47))
+start_date = st.date_input("Выберите начальную дату")
+start_time = st.time_input("Выберите начальное время")
 START_TIME = datetime.combine(start_date, start_time)
 
-end_date = st.date_input("Выберите конечную дату", value=datetime(2024, 12, 28))
-end_time = st.time_input("Выберите конечное время", value=time(17, 3))
+end_date = st.date_input("Выберите конечную дату")
+end_time = st.time_input("Выберите конечное время")
 END_TIME = datetime.combine(end_date, end_time)
 
 
