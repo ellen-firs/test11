@@ -14,12 +14,11 @@ import streamlit as st
 from datetime import datetime, time
 start_date_choose = st.date_input("Выберите начальную дату")
 start_time_choose = st.time_input("Выберите начальное время")
-START_TIME = datetime.combine(start_date_choose, start_time_choose, tzinfo=timezone.utc)
+START_TIME = datetime.combine(start_date_choose, start_time_choose)
 
 end_date_choose = st.date_input("Выберите конечную дату")
 end_time_choose = st.time_input("Выберите конечное время")
-END_TIME = datetime.combine(end_date_choose, end_time_choose, tzinfo=timezone.utc)
-
+END_TIME = datetime.combine(end_date_choose, end_time_choose)
 
 filtered = []
 
