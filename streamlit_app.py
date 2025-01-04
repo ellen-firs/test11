@@ -127,9 +127,10 @@ if uploaded_file:
             content = ""
 
             
-            for i, track in enumerate(scrobbles):
+            for track in scrobbles:
                 #st.write("Загружаем ", *track.values(), end="")
-                content += f"<p>Загружаем: {track.values()}, end="" </p>"
+                track_info = str(*track.values(), end="")
+                content += f"<p>Загружаем: {track_info}</p>"
                 scrollable_container.markdown(
                     scrollable_html.format(content=content), unsafe_allow_html=True
                 )
