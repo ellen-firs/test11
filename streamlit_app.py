@@ -106,7 +106,7 @@ if uploaded_file:
             else:
                 session_key = open(SESSION_KEY_FILE).read()
         
-            network.session_key = session_key
+            #network.session_key = session_key
         
             st.write("Начало загрузки")
             for track in scrobbles:
