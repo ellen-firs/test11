@@ -37,10 +37,10 @@ uploaded_file = st.file_uploader("Загрузите файл history.json", typ
 if uploaded_file:
     try:
         history = json.load(uploaded_file)  # Загружаем JSON-объект из загруженного файла
-        start_time = START_TIME
+        start_time = START_TIME.replace(tzinfo=timezone.utc)
         print(start_time)
         print("\n")
-        end_time = END_TIME
+        end_time = END_TIME.replace(tzinfo=timezone.utc)
         for item in history:
             item_time = datetime.fromisoformat(item["timestamp"].rstrip("Z") + "+00:00")
             if start_time <= item_time < end_time:
