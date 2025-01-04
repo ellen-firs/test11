@@ -92,7 +92,7 @@ if uploaded_file:
             skg = pylast.SessionKeyGenerator(network)
             url = skg.get_web_auth_url()
         
-            print(f"Пожалуйста, авторизуйтесь в last.fm: {url}\n")
+            st.write(f"Пожалуйста, авторизуйтесь в last.fm: {url}\n")
             import time
             import webbrowser
         
