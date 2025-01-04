@@ -39,6 +39,7 @@ if uploaded_file:
         history = json.load(uploaded_file)  # Загружаем JSON-объект из загруженного файла
         start_time = START_TIME
         print(start_time)
+        print("\n")
         end_time = END_TIME
         for item in history:
             item_time = datetime.fromisoformat(item["timestamp"].rstrip("Z") + "+00:00")
