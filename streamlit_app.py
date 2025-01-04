@@ -78,7 +78,7 @@ if uploaded_file:
                      print(item, ids_map[item['id']].artists[0].name)
         
         st.write("Проверьте начало и конец списка")
-        df = pd.DataFrame(list(track_info.values())
+        df = pd.DataFrame(list(track_info.values()))
         st.dataframe(df)
         #df_reversed = df.iloc[::-1]
         #st.dataframe(df_reversed) 
