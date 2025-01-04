@@ -142,7 +142,13 @@ if uploaded_file:
                                  album=track['album'],
                                  duration=track['duration'],
                                  timestamp=timestamp)
-                print(" Done!")
+                content += "<p> ✅</p>"
+                scrollable_container.markdown(
+                    scrollable_html.format(content=content), unsafe_allow_html=True
+                )
+                time.sleep(0.1)
+
+            
             st.write("Всё загружено")
     finally:
         print("ok")
