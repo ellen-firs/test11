@@ -147,7 +147,6 @@ if uploaded_file:
                     scrollable_html.format(content=content), unsafe_allow_html=True
                 )
                 time.sleep(0.1)
-                content = ""
             
             st.write("Всё загружено")
     finally:
