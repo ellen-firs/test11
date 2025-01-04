@@ -11,7 +11,7 @@
 # т.е. если в Last.fm московское время, то вычтите 3 часа
 
 import streamlit as st
-from datetime import datetime, time
+from datetime import datetime, time, timezone
 start_date_choose = st.date_input("Выберите начальную дату")
 start_time_choose = st.time_input("Выберите начальное время")
 START_TIME = datetime.combine(start_date_choose, start_time_choose)
@@ -24,7 +24,6 @@ filtered = []
 
 
 import json
-from datetime import datetime
 from yandex_music import Client
 import os
 import pandas as pd
