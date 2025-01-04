@@ -88,23 +88,21 @@ if uploaded_file:
         
             SESSION_KEY_FILE = ".session_key"
             network = pylast.LastFMNetwork("15ea55ecc2d12d5910bd1a56c89fb604",
-                                           "2dff873c07e12a590e512c62b86b899c")
-            if not os.path.exists(SESSION_KEY_FILE):
-                skg = pylast.SessionKeyGenerator(network)
-                url = skg.get_web_auth_url()
+                                   "2dff873c07e12a590e512c62b86b899c")
+            skg = pylast.SessionKeyGenerator(network)
+            url = skg.get_web_auth_url()
         
-                st.write(f"Пожалуйста, авторизуйтесь в last.fm: {url}\n")
-                import time
-                import webbrowser
+            print(f"Пожалуйста, авторизуйтесь в last.fm: {url}\n")
+            import time
+            import webbrowser
         
-                webbrowser.open(url)
-        
-                while True:
-                    try:
-                        session_key = skg.get_web_auth_session_key(url)
-                        break
-                    except pylast.WSError:
-                        time.sleep(1)
+            webbrowser.open(url)
+            while True:
+                try:
+                    network.session_key = skg.get_web_auth_session_key(url)
+                    break
+                except pylast.WSError:
+                    time.sleep(1)
             else:
                 session_key = open(SESSION_KEY_FILE).read()
         
